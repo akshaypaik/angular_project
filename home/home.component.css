@@ -1,0 +1,29 @@
+li{
+    text-decoration: none;
+}
+
+.error{
+    color: red;
+}
+
+.taskAlign{
+    margin-left: -2%;
+    margin-top: 2%;
+}
+
+.success{
+    color: green;
+}
+
+.loginDetailsAlign{
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.subTaskAlign{
+    margin-left: -22%;
+}
+
+label{
+    font-weight: bold;
+}

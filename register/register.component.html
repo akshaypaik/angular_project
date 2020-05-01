@@ -1,0 +1,67 @@
+<div [formGroup]="registerForm">
+    <div class="container">
+        <span class="row">
+            <span class="col-sm-6 header">
+                Register
+            </span>
+        </span>
+    </div>
+    <div class="container">
+        <span class="row">
+            <span class="col-sm-6">
+                <div class="form-group">
+                    <label>Email :</label>
+                    <input type="email" class="form-control" formControlName="email" required/>
+                </div>
+            </span>
+            <span class="col-sm-6" style="margin-top: 3%">
+                <span *ngIf="registerForm.get('email').errors && registerForm.get('email').touched && registerForm.get('email').dirty" class="error">
+                    Please enter a valid Email
+                </span>
+            </span>
+        </span>
+        <span class="row">
+            <span class="col-sm-6">
+                <div class="form-group">
+                    <label>Password :</label>
+                    <input type="password" class="form-control" formControlName="password" required/>
+                </div>
+            </span>
+        </span>
+        <span class="row">
+            <span class="col-sm-6">
+                <div class="form-group">
+                    <label>Confirm Password :</label>
+                    <input type="password" class="form-control" formControlName="confirmpassword" required/>
+                </div>
+            </span>
+            <span *ngIf="registerForm.get('confirmpassword').errors && registerForm.get('confirmpassword').touched && registerForm.get('confirmpassword').dirty" class="error">
+                    <span class="col-sm-6" style="margin-top: 3%">
+                        Password and Confirm Password doesnot match!!!
+                    </span>
+            </span>
+            <span *ngIf="!registerForm.get('confirmpassword').errors && registerForm.get('confirmpassword').touched && registerForm.get('confirmpassword').dirty" class="success">
+                    <span class="col-sm-6" style="margin-top: 3%">
+                        Password and Confirm Password matches!!!
+                    </span>
+            </span>
+        </span>
+        <span class="row">
+            <span class="col-sm-12">
+                <button type="submit" class="btn btn-primary alignButton" [disabled]="disableSubmitButton" (click)="onSubmit()">Register</button>
+                <button class="btn btn-primary alignButton" (click)="callLogin()">Back to Login</button>
+            </span>
+            <span class="col-sm-6" style="margin-top: 3%">
+                <span *ngIf="!registerForm.valid" class="error">
+                    Please fill all fields
+                </span>
+            </span>
+        </span>
+    </div>
+</div>
+
+<div *ngIf="successRegister">
+    <div class="container">
+        <p> You are successfully registered!!! Please Login </p>
+    </div>
+</div>

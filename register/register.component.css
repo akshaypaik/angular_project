@@ -1,0 +1,19 @@
+.header{
+    margin-bottom: 3%;
+    margin-top: 3%;
+    font-weight: bold;
+}
+
+.alignButton{
+    margin-right: 3%;;
+}
+
+.error{
+    color: red;
+    margin-top: 3%;
+}
+
+.success{
+    color: green;
+    margin-top: 3%;
+}

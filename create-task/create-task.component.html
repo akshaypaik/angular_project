@@ -1,0 +1,84 @@
+<div [formGroup] = "taskForm">
+    <div class="container">
+        <span class="row">
+            <span class="col-sm-6 header">
+                Create Task
+            </span>
+        </span>
+    </div>
+    <div class="container">
+        <span class="row">
+            <span class="col-sm-6">
+                <div class="form-group">
+                    <label>Short Line :</label>
+                    <input type="text" class="form-control" formControlName="shortline"/>
+                </div>
+            </span>
+        </span>
+        <span class="row">
+            <span class="col-sm-6">
+                <div class="form-group">
+                    <label>Description :</label>
+                    <input type="text" class="form-control" formControlName="description"/>
+                </div>
+            </span>
+        </span>
+        <span class="row">
+            <span class="col-sm-6">
+                <div class="form-group">
+                    <label>Ticket Number :</label>
+                    <input type="text" class="form-control" formControlName="ticketnumber"/>
+                </div>
+            </span>
+            <span class="col-sm-6" style="margin-top: 3%">
+                <span *ngIf="taskForm.get('ticketnumber').errors && taskForm.get('ticketnumber').touched && taskForm.get('ticketnumber').dirty" class="error">
+                    Please enter a valid Ticket Number (Ex : ABC1234)
+                </span>
+            </span>
+        </span>
+        <span class="row">
+            <span class="col-sm-6">
+                <div class="form-group">
+                    <label>ID :</label>
+                    <input type="text" class="form-control" formControlName="id"/>
+                </div>
+            </span>
+            <span class="col-sm-6" style="margin-top: 3%">
+                <span *ngIf="taskForm.get('id').errors && taskForm.get('id').touched && taskForm.get('id').dirty" class="error">
+                    Please enter a valid GPID/MPID/APID (Ex : G517765)
+                </span>
+            </span>
+        </span>
+        <span class="row">
+            <span class="col-sm-6">
+                <div class="form-group">
+                    <label>Start Date :</label>
+                    <input type="date" class="form-control" formControlName="startdate"/>
+                </div>
+            </span>
+        </span>
+        <span class="row">
+            <span class="col-sm-6">
+                <div class="form-group">
+                    <label>End Date :</label>
+                    <input type="date" class="form-control" formControlName="enddate"/>
+                </div>
+            </span>
+        </span>
+        <span class="row">
+            <span class="col-sm-12">
+                <span>
+                    <button class="btn btn-primary alignButton" [disabled]="disableSubmitButton" (click)="onSave()">Save</button>
+                </span>
+            </span>
+            <span class="col-sm-6" style="margin-top: 3%">
+                <span *ngIf="!taskForm.valid" class="error">
+                    Please fill all fields to save
+                </span>
+            </span>
+        </span>
+        <span *ngIf="successSave" class="success">
+            Successfully Saved!
+        </span>
+    </div>
+</div>

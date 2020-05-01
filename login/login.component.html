@@ -1,0 +1,66 @@
+<div *ngIf="showLoginPage">
+    <div [formGroup]="loginForm">
+        <div class="container">
+            <span class="row">
+                <span class="col-sm-6 header">
+                    Login
+                </span>
+            </span>
+        </div>
+        <div class="container">
+            <span class="row">
+                <span class="col-sm-6">
+                    <div class="form-group">
+                        <label>Email :</label>
+                        <input type="email" class="form-control pointer" formControlName="username" required/>
+                    </div>
+                </span>
+                <span class="col-sm-6" style="margin-top: 3%">
+                    <span *ngIf="loginForm.get('username').errors && loginForm.get('username').touched && loginForm.get('username').dirty" class="error">
+                        Please enter a valid Email
+                    </span>
+                </span>
+            </span>
+            <span class="row">
+                <span class="col-sm-6">
+                    <div class="form-group">
+                        <label>Password :</label>
+                        <input type="password" class="form-control" formControlName="password"/>
+                    </div>
+                </span>
+            </span>
+            <span class="row">
+                <span class="col-sm-12">
+                    <span>
+                        <button class="btn btn-primary alignButton pointer" [disabled]="disableSubmitButton" (click)="showLoginDetails()">Submit</button>
+                    </span>
+                   <span>
+                        <button class="btn btn-success pointer" (click)="callRegister()">Register</button>
+                   </span>
+                </span>
+                <span class="col-sm-6" style="margin-top: 3%">
+                    <span *ngIf="!loginForm.valid" class="error">
+                        Please fill all fields
+                    </span>
+                </span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div *ngIf="showDetails" class="alignLogin">
+        <app-home [showDetails]=true [userName]=userName [finalDone]=finalDone [finalPending]=finalPending></app-home>
+    </div>
+    <div *ngIf="showError" class="error">
+        <p>Please login with valid credentials</p>
+    </div>
+</div>
+
+<div *ngIf="showProducts">
+    <p> PRODUCTS </p>
+</div>
+
+<!--<div *ngIf="showHome">
+    <app-home [showDetails]=true [userName]=userName></app-home>
+</div>-->

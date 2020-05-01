@@ -1,0 +1,23 @@
+.error{
+    color: red;
+}
+
+.alignLogin{
+    margin-top: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+.alignButton{
+    margin-right: 3%;;
+}
+
+.header{
+    margin-bottom: 3%;
+    margin-top: 3%;
+    font-weight: bold;
+}
+
+.pointer{
+    cursor: pointer;
+}

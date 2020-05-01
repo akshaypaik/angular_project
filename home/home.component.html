@@ -1,0 +1,64 @@
+<div class="container">
+    <div *ngIf="showDetails" class="alignLogin">
+        <p> You are Logged in </p>
+        <p> Hi, {{userName}} </p>
+        <div class="container" style="display: inline-block;">
+            <span class="row">
+                <span class="col-sm-3">
+                    <button class="btn btn-primary" (click)="clickLogin()">
+                        Login Time 
+                    </button>
+                </span>
+                <span class="col-sm-3">
+                    <button class="btn btn-primary" (click)="clickTask()">
+                        My Tasks
+                    </button>
+                </span>
+                <span class="col-sm-3">
+                    <button class="btn btn-primary" (click)="clickCreateTask()">
+                        Create Task
+                    </button>
+                </span>
+            </span>
+            <span class="row">
+                <span class="col-sm-3 loginDetailsAlign">
+                    <span class="row">
+                        <span *ngIf="showLoginDetails">
+                            {{ loginTime | date:'HH:mm:ss' }}
+                        </span>
+                    </span>
+                    <span *ngIf="showLoginDetails" class="row success">
+                        Success
+                    </span>
+                </span>
+                <span class="col-sm-3 taskAlign">
+                    <ul *ngIf="showTaskDetails"class="list-group">
+                        <li class="list-group-item list-group-item-action"> 
+                            <label> Task In Progress </label> 
+                        <ul class="subTaskAlign">
+                            <li *ngFor="let task of finalDone" class="list-group-item list-group-item-action">
+                                {{task}}
+                            </li>
+                        </ul>    
+                        </li>
+                        
+                        <li class="list-group-item list-group-item-action"> 
+                            <label> Task Completed </label> 
+                            <ul class="subTaskAlign">
+                                <li *ngFor="let task of finalPending"  class="list-group-item list-group-item-action">
+                                    {{task}}
+                                </li>
+                            </ul>   
+                        </li>
+                    </ul>
+                </span>
+            </span>
+        </div>
+    </div>
+    <div *ngIf="showError" class="error">
+        <p>Please login with valid credentials</p>
+    </div>
+    <div *ngIf="!showDetails" class="error">
+        <p> Please login to view Home Page</p>
+    </div>
+</div>
